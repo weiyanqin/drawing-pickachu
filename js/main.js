@@ -1,18 +1,20 @@
 ! function () {
+    var duration = 20
     function writeCode(prefix, code, fn) {
         let container = document.querySelector('#code')
         let styleTag = document.querySelector('.styleTag')
         let n = 0
-        let id = setInterval(() => {
+        let id = setTimeout(function run (){
             n += 1
             container.innerHTML = code.substring(0, n)
             styleTag.innerHTML = code.substring(0, n)
             container.scrollTop = 10000
-            if (n >= code.length) {
-                clearInterval(id)
+            if (n < code.length) {
+                id = setTimeout(run,duration)
+            }else{
                 fn && fn()
             }
-        }, 10)
+        }, duration)
     }
     let code = `.preview{
     height: 100%;
@@ -138,5 +140,22 @@
     }
 `
     writeCode('', code)
+    $('.actions').on('click','button',function(e){
+        let speed = $(this).attr('data-speed')
+        console.log(speed)
+        $(this).addClass('active')
+        .siblings().removeClass('active')
+        switch(speed){
+            case 'slow':
+            duration: 100
+            break
+            case 'normal': 
+            duration = 10
+            break
+            case 'fast':
+            duration = 1
+            break
+        }
+    })
 
 }()
