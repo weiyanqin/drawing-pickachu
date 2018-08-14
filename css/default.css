@@ -14,6 +14,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #FEE433;
 }
 .wrapper{
     width: 100%;
@@ -59,4 +60,21 @@ body{
 .eye.right{
     left: 50%;
     margin-left: 90px;
+}
+.face{
+    width: 68px;
+    height: 68px;
+    background-color: #FC0D1C;
+    border: 2px solid black;
+    border-radius: 50%;
+    position: absolute;
+    top: 85px;
+}
+.face.left{
+    right: 50%;
+    margin-right: 116px;
+}
+.face.right{
+    left: 50%;
+    margin-left: 116px;
 }
