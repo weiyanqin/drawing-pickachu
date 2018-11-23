@@ -43,6 +43,11 @@ body{
     padding: 8px 10px;
     border: none;
 }
+
+.actions button#reStart{
+    display: none;
+}
+
 .actions button.active{
     box-shadow: 1px 1px 1px rgba(0,0,0,0.8)
 }

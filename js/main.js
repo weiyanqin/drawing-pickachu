@@ -163,11 +163,15 @@
             }
             pause.onclick = function () {
                 stopWrite(timeoutCount)
+                $('#reStart').css('display', 'block')
+                $('#pause').css('display', 'none')
             }
             reStart.onclick = function () {
-                !function() {
+                ! function () {
                     setTimeout(run, duration)
                 }()
+                $('#reStart').css('display', 'none')
+                $('#pause').css('display', 'block')
             }
         }, duration)
     }
@@ -175,6 +179,5 @@
     function stopWrite(timeoutCount) {
         clearTimeout(timeoutCount)
     }
-
 
 }()
